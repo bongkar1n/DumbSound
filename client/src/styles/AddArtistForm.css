@@ -1,0 +1,54 @@
+.artist-form-page {
+  height: 1000px;
+  background-color: #000000;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.text-add-artist {
+  margin-bottom: 30px;
+  color: white;
+}
+
+.input-form-music {
+  height: 70px;
+}
+
+.form-input-type-artist {
+  height: 70px;
+  width: 100%;
+}
+
+.button-container-artist {
+  display: flex;
+  justify-content: center;
+}
+
+.button-submit-artist {
+  width: 350px;
+  border-radius: 10px;
+  font-size: 25px;
+  margin-top: 20px;
+  background: #f58033 !important;
+  border-color: #f58033 !important;
+}
+
+.button-submit-artist:hover {
+  background: #f58033 !important;
+}
+
+.button-submit-artist:focus {
+  background: #f58033 !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.btn-primary.btn-lg {
+  outline-color: #f58033 !important;
+}
+
+.button-submit-artist.btn .tn-primary.btn-lg {
+  outline-color: #f58033 !important;
+  border-color: #f58033 !important ;
+}

@@ -1,0 +1,12 @@
+.addMusic-Page {
+  display: flex;
+  flex-direction: column;
+}
+
+.addMusic-Header {
+  flex: 1;
+}
+
+.addMusic-Content {
+  flex: 5;
+}

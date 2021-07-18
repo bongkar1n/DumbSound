@@ -1,0 +1,60 @@
+.button-payment-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0e0d0d;
+  /* background-color: red; */
+  /* height: 1000px; */
+  min-height: 82.4vh;
+  flex-direction: column;
+}
+
+.premium {
+  font-size: 60px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.text-desc {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.rek-number {
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.input-acc-no {
+  width: 400px;
+  height: 70px;
+  border-radius: 10px;
+}
+
+.label-input input[type="file"] {
+  display: none;
+}
+
+.label-input {
+  border: 1px solid #ccc;
+  display: flex;
+  padding: 6px 12px;
+  cursor: pointer;
+  /* background-color: turquoise; */
+  width: 400px;
+  height: 70px;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  color: #ee4622;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.proof-preview {
+  max-width: 400px;
+  border-radius: 20px;
+}
+
+.container-proof {
+  display: flex;
+  justify-content: center;
+}

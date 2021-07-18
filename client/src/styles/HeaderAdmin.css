@@ -1,0 +1,27 @@
+.navbar-admin {
+  display: flex;
+  justify-content: space-between;
+  height: 150px;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.dumbplay-icon {
+  margin-left: 30px;
+  height: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.profile-icon {
+  margin-right: 30px;
+  height: 80px;
+}
+/* 
+#popover-contained {
+  transform: translate(2130px, 122px) !important;
+} */

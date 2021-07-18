@@ -1,0 +1,26 @@
+.navbar-user {
+  display: flex;
+  justify-content: space-between;
+  height: 150px;
+  background-color: #0e0d0d;
+}
+.header-container-user {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: blue; */
+  height: 120px;
+  align-items: center;
+  width: 100%;
+}
+
+.dumbplay-icon {
+  margin-left: 30px;
+  height: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.profile-icon {
+  margin-right: 30px;
+  height: 80px;
+}

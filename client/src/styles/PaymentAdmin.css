@@ -1,0 +1,81 @@
+.payment-page {
+  height: 1000px;
+  background-color: #000000;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.table-container {
+  width: 70%;
+  height: 70%;
+  /* background-color: cadetblue; */
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.text-incoming {
+  margin-bottom: 30px;
+}
+
+.main-table {
+  color: white;
+}
+
+.head-table-paymentlist {
+  color: #f58033;
+}
+
+.container-arrow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow-dropdown {
+  position: absolute;
+  /* z-index: 9999; */
+  padding-top: 10px;
+}
+
+.btn {
+  color: none !important;
+}
+
+.dropdown-toggle::after {
+  border-top: none !important;
+  outline: none !important;
+}
+
+.btn.focus,
+.btn:focus {
+  box-shadow: none !important;
+}
+
+.dropdown-down-transaction {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.drop-menu-approved {
+  color: #0acf83;
+  /* padding: 4px 0 !important;
+  width: 100px; */
+}
+
+.drop-menu-rejected {
+  color: #ff0000;
+  /* padding: 4px 0 !important;
+  width: 100px; */
+}
+
+.message-success-music {
+  display: flex;
+  justify-content: center;
+}
+
+div.dropdown-menu-transaction.dropdown-menu-show {
+  width: 120px !important;
+}
