@@ -1,0 +1,31 @@
+.outer {
+  width: 120px;
+  height: 120px;
+  background-color: #ee4622;
+  position: fixed;
+  top: 10px;
+  right: 150px;
+  z-index: 9999;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner {
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner p {
+  color: #fff;
+  /* background-color: blue; */
+  margin-top: 10px;
+  font-size: 20px;
+}

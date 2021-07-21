@@ -204,7 +204,11 @@ function Register(props) {
                 style={{ height: "50px" }}
               />
             </Form.Group>
-            <Button className="button-form-login" type="submit">
+            <Button
+              className="button-form-login"
+              type="submit"
+              style={{ height: "50px" }}
+            >
               Register
             </Button>
 

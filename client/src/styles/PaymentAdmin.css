@@ -1,5 +1,5 @@
 .payment-page {
-  height: 1000px;
+  min-height: 1000px;
   background-color: #000000;
   justify-content: center;
   align-items: center;
@@ -13,6 +13,8 @@
   display: flex;
   flex-direction: column;
   color: white;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .text-incoming {
@@ -21,6 +23,7 @@
 
 .main-table {
   color: white;
+  /* background-color: #0acf83; */
 }
 
 .head-table-paymentlist {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import bgImage from "../images/Rectangle 1.svg";
 import "../styles/Home.css";
 import { Image, Card, Button, Container, Row, Col } from "react-bootstrap";
@@ -7,13 +7,19 @@ import Register from "../components/Register";
 import dumbplay from "../images/DUMBSOUND.svg";
 import Playlist from "../components/Playlist";
 import PlaylistLoggedIn from "../components/PlaylistLoggedIn";
+import { UserContext } from "../context/UseContext";
+import { useHistory } from "react-router-dom";
 
 function Home() {
+  let history = useHistory();
+  const [state, dispatch] = useContext(UserContext);
   const [loginShow, setLoginShow] = useState(false);
   const handleClickLogin = () => setLoginShow(!loginShow);
 
   const [registerShow, setRegisterShow] = useState(false);
   const handleClickRegister = () => setRegisterShow(!registerShow);
+
+  const handleToPlay = () => history.push("/play");
 
   return (
     <div className="main-background">
@@ -46,7 +52,7 @@ function Home() {
                 {registerShow ? <Register isOpen={registerShow} /> : null}
               </div>
             </div>
-            {/* <div className="main-top-container"> */}
+
             <div className="text-container">
               <Card.Title className="text-title-center">
                 Connect on DumbSound
@@ -56,7 +62,6 @@ function Home() {
                 from emerging and major artists around the world
               </Card.Text>
             </div>
-            {/* </div> */}
           </Card.ImgOverlay>
         </Card>
       </div>
@@ -67,9 +72,6 @@ function Home() {
       <div className="main-body-wrapper">
         <PlaylistLoggedIn handleClickLogin={handleClickLogin} />
       </div>
-      {/* <div className="footer">
-        <h1> ini Footer</h1>
-      </div> */}
     </div>
   );
 }

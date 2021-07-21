@@ -32,7 +32,9 @@
   height: 40px;
   font-family: Avenir;
   font-weight: 900px;
-  font-size: 23px;
+  font-size: 21px;
+  outline-color: #ee4622 !important ;
+  border-color: #ee4622 !important ;
 }
 .button-form-login:hover {
   background: #ee4622;

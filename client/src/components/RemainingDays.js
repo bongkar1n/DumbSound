@@ -18,23 +18,12 @@ function RemainingDays(props) {
   const loadDueDate = async () => {
     try {
       const response = await API.get(`payment/${props.dataId}`);
-      // console.log(response);
       setDueDate(response.data.data.dueDate);
       props.loadPayment();
     } catch (error) {
       console.log(error);
     }
   };
-
-  // const loadStartDate = async () => {
-  //   try {
-  //     const response = await API.get(`payment/${props.dataId}`);
-  //     // console.log(response);
-  //     setFirst(response.data.data.startDate);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const date1 = new Date(today);
   const date2 = new Date(dueDate);
@@ -51,7 +40,6 @@ function RemainingDays(props) {
 
   useEffect(() => {
     loadDueDate();
-    // loadStartDate();
   }, []);
 
   return (

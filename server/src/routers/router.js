@@ -5,7 +5,7 @@ const router = express.Router();
 module.exports = router;
 
 const {registration, user, login, checkAuth } = require("../controllers/auth")
-const {payment, getAllTransaction, updatePayment, getTransactionById} = require("../controllers/payment")
+const {payment, getAllTransaction, updatePayment, getTransactionById, getTransactionByIdUser} = require("../controllers/payment")
 const {addArtist, addSong, getSongs, getArtists} = require("../controllers/music")
 
 
@@ -28,6 +28,7 @@ router.post("/payment", auth, uploadFile("imageFile"),  payment);
 router.get("/allpayment", getAllTransaction);
 router.patch("/payment/:id", auth, updatePayment )
 router.get("/payment/:id", auth, getTransactionById )
+router.get("/payment", auth, getTransactionByIdUser )
 
 // add Artist Musics 
 router.post("/artist", auth, addArtist);

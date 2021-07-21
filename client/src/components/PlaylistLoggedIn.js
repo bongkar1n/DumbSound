@@ -1,17 +1,22 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 import "../styles/Playlist.css";
 import MediaPlay from "./MediaPlay";
 import { API } from "../config/api";
 import { UserContext } from "../context/UseContext";
+import { useHistory } from "react-router-dom";
 
 function PlaylistLoggedIn(props) {
+  let history = useHistory();
   const [state, dispatch] = useContext(UserContext);
   const path = "http://localhost:7000/uploads/";
   const [songs, setSongs] = useState([]);
   const [song, setSong] = useState();
   const [artists, setArtists] = useState([]);
+  const [paymentList, setPaymentList] = useState([]);
+  const [statusPayment, setStatusPayment] = useState();
+  const [currentPlay, setCurrentPlay] = useState(0);
 
   const [showAudio, setShowAudio] = useState(false);
   const handleShowAudio = (id) => {
@@ -23,8 +28,18 @@ function PlaylistLoggedIn(props) {
       setShowAudio(true);
     }
   };
+  const handleToPayment = () => {
+    history.push("/payment");
+  };
 
-  const [currentPlay, setCurrentPlay] = useState(0);
+  const loadPayment = async () => {
+    try {
+      const response = await API.get("/allpayment");
+      setPaymentList(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const loadSong = async () => {
     try {
@@ -51,10 +66,26 @@ function PlaylistLoggedIn(props) {
     }
   };
 
+  const matchPayment = async () => {
+    try {
+      const findData = await API.get(`/payment`);
+      console.log(findData);
+      setStatusPayment(findData.data.data.status);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
+    matchPayment();
     loadArtist();
     loadSong();
+    loadPayment();
   }, []);
+
+  console.log(paymentList);
+  console.log(state);
+  console.log(statusPayment);
 
   return (
     <div className="main-body-playlist-login">
@@ -65,8 +96,20 @@ function PlaylistLoggedIn(props) {
           className="song-cover"
           onClick={
             state.isLogin
-              ? () => handleShowAudio(index)
+              ? statusPayment === "Approved"
+                ? () => handleShowAudio(index)
+                : handleToPayment
               : props.handleClickLogin
+
+            // !state.isLogin ? (
+            //   props.handleClickLogin
+            // ) : (
+            //   <>
+            //     {statusPayment === "Approved"
+            //       ? () => handleShowAudio(index)
+            //       : handleToPayment()}
+            //   </>
+            // )
           }
         >
           <Card.Img variant="top" src={path + item.thumbnail} />
@@ -86,8 +129,22 @@ function PlaylistLoggedIn(props) {
           </Card.Body>
         </Card>
       ))}
+      {/* <MediaPlay audioLists={song} show={showAudio} playIndex={currentPlay} /> */}
+      {/* {state.isLogin && statusPayment === "Approved" ? (
+          <div>
+          <MediaPlay
+          audioLists={song}
+          show={showAudio}
+          playIndex={currentPlay}
+          />
+          </div>
+          ) : (
+            <div onClick={handleToPayment}>
+            <MediaPlay />
+            </div>
+          )} */}
       <div>
-        {state.isLogin && (
+        {statusPayment === "Approved" && (
           <MediaPlay
             audioLists={song}
             show={showAudio}

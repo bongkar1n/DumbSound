@@ -12,8 +12,10 @@ import {
 import RemainingDays from "./RemainingDays";
 import arrow from "../images/Polygon 2.png";
 import { API } from "../config/api";
+import { useHistory } from "react-router-dom";
 
 function PaymentListAdmin(props) {
+  let history = useHistory();
   const [paymentList, setPaymentList] = useState([]);
   const [dateData, setDateData] = useState();
   const [uploadDate, setUploadDate] = useState({
@@ -78,6 +80,10 @@ function PaymentListAdmin(props) {
 
       const response = await API.patch(`/payment/${id}`, body, config);
       loadPayment();
+
+      setTimeout(() => {
+        history.go(0);
+      }, 500);
     } catch (error) {
       console.log(error);
     }
@@ -104,38 +110,14 @@ function PaymentListAdmin(props) {
 
       const response = await API.patch(`/payment/${id}`, body, config);
       loadPayment();
+
+      setTimeout(() => {
+        history.go(0);
+      }, 500);
     } catch (error) {
       console.log(error);
     }
   };
-
-  // const handleUploadDate = async (id) => {
-  //   try {
-  //     const config = {
-  //       headers: {
-  //         "Content-type": "application/json",
-  //       },
-  //     };
-  //     const body = JSON.stringify({ ...uploadDate, status: "Approved" });
-  //     const response = await API.patch(`payment/${id}`, body, config);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const handleReject = async (id) => {
-  //   try {
-  //     const config = {
-  //       headers: {
-  //         "Content-type": "application/json",
-  //       },
-  //     };
-  //     const body = JSON.stringify({ status: "Rejected" });
-  //     const response = await API.patch(`payment/${id}`, body, config);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const date1 = new Date(StartDate);
   const date2 = new Date(uploadDate.dueDate);

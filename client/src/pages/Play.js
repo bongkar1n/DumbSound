@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 import bgImage from "../images/Rectangle 1.svg";
 import { UserContext } from "../context/UseContext";
 import { useHistory } from "react-router-dom";
+import CountdownDays from "../components/CountdownDays";
 
 import "../styles/Play.css";
 import {
@@ -29,6 +30,7 @@ import { API } from "../config/api";
 function Home() {
   const path = "http://localhost:7000/uploads/";
   const history = useHistory();
+  const [countdown, setCountdown] = useState(false);
   const [songs, setSongs] = useState([]);
   // const [song, setSong] = useState();
 
@@ -91,8 +93,16 @@ function Home() {
   // console.log(song);
   return (
     <div>
+      <Button
+        className="button-remaining-days"
+        onClick={() => setCountdown(!countdown)}
+      >
+        <span>RD</span>
+      </Button>
+      {countdown && <CountdownDays />}
+
       <div>
-        <Card className="bg-dark text-white">
+        <Card className="bg-dark text-white card-continer-BgImage">
           <Card.Img src={bgImage} alt="Card image" />
           <Card.ImgOverlay>
             <div className="button-container ">

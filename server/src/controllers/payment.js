@@ -156,3 +156,30 @@ exports.getTransactionById = async (req, res) => {
         })
     }
 }
+
+
+exports.getTransactionByIdUser = async (req, res) => {
+    try {
+        const { userId } = req;
+        const getData = await transaction.findOne({
+            where: {
+                userId,
+            },
+            attributes: {
+                exclude: ["createdAt", "updatedAt"]
+            }
+        })
+
+        res.send({
+            status: "success",
+            message: "successfully get data by User Id",
+            data: getData
+        })
+    } catch (error) {
+        console.log(error);
+        res.send({
+            status: "Failed",
+            message: "Server Error"
+        })
+    }
+}

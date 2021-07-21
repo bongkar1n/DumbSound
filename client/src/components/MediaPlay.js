@@ -11,6 +11,8 @@ function MediaPlay(props) {
     showPlayMode: false,
     showThemeSwitch: false,
     toggleMode: true,
+    preload: false,
+    autoPlay: false,
   };
 
   return (

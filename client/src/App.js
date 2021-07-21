@@ -3,8 +3,9 @@ import { useContext, useEffect } from "react";
 
 import Home from "./pages/Home";
 import Play from "./pages/Play";
-import Admin from "./pages/Admin";
+import PaymentAdmin from "./pages/PaymentAdmin";
 import Payment from "./pages/Payment";
+import PaymentUser from "./pages/PaymentUser";
 import AddMusic from "./pages/AddMusic";
 import AddArtist from "./pages/AddArtist";
 import { Switch, Route, useHistory } from "react-router-dom";
@@ -22,6 +23,7 @@ function App() {
   const checkUser = async () => {
     try {
       const response = await API.get("/check-auth");
+      console.log(response);
 
       if (response.status === 404) {
         return dispatch({
@@ -75,10 +77,10 @@ function App() {
       {state.isLogin ? (
         <div>
           <Route path="/play" component={Play} />
-          <Route path="/payment" component={Payment} />
+          <Route path="/payment" component={PaymentUser} />
           {state.user.listAs === 1 && (
             <div>
-              <Route path="/admin" component={Admin} />
+              <Route path="/admin" component={PaymentAdmin} />
               <Route path="/music" component={AddMusic} />
               <Route path="/artist" component={AddArtist} />
             </div>

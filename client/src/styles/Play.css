@@ -110,3 +110,28 @@
   justify-content: center;
   background-color: turquoise;
 }
+
+.button-remaining-days {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+  width: 50px;
+  background-color: #ee4622 !important;
+  outline-color: #ee4622 !important ;
+  border-color: #ee4622 !important ;
+}
+
+.button-remaining-days:hover {
+  width: 150px;
+  background-color: #ee4622 !important;
+  transition: 0.3s;
+}
+
+.button-remaining-days:hover span {
+  display: none;
+}
+
+.button-remaining-days:hover:before {
+  content: "Remaining Days";
+}
